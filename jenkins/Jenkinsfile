@@ -13,7 +13,7 @@ pipeline {
    stage('buildModule') {
        steps {
     echo 'begin buildModule...' 
-    echo ${currentBuild.previousBuild.result}
+    echo  currentBuild.previousBuild.result
 
  }
 
