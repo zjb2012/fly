@@ -1,0 +1,35 @@
+pipeline {
+   agent any
+
+   stages {
+
+   stage('init') {
+      steps {
+    echo 'begin init...'
+
+ }
+
+   stage('buildModule') {
+       steps {
+    echo 'begin buildModule...' 
+
+ }
+
+
+}
+
+}
+ 
+
+
+
+}
+
+
+
+
+
+
+
+
+}
