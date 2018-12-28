@@ -1,5 +1,14 @@
 pipeline {
    agent any
+   
+   parameters {
+      string(name: 'GIT_CHECKOUT', defaultValue: 'git@', description: '需要编译的分支路径')
+      string(name: 'PACKAGE_ONLY', defaultValue: false, description: '跳过编译,只打zip包。')
+   }
+   
+   environment {
+      mvnPhase = "clean deploy"
+   }
 
    stages {
 
@@ -11,9 +20,21 @@ pipeline {
 }
 
    stage('buildModule') {
-       steps {
-    echo 'begin buildModule...' 
-    echo  currentBuild.previousBuild.result
+      when {
+         expression { return PACKAGE_ONLY.equals("false") }
+      }
+      steps {
+         withEnv(["modName=frw", "level=0"]) {
+            script {
+               changeSetSize = currentBuild.changeSets.size()
+            }
+            echo 'begin buildModule...' 
+            echo  "上次编译的结果: ${currentBuild.previousBuild.result} "
+            echo "当前编译结果集: ${currentBuild.changeSets}"
+            
+            buildModule("${modName}", mvnPhase)
+            
+         }
 
  }
 
