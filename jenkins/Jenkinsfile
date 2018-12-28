@@ -3,7 +3,7 @@ pipeline {
    
    parameters {
       string(name: 'GIT_CHECKOUT', defaultValue: 'git@', description: '需要编译的分支路径')
-      string(name: 'PACKAGE_ONLY', defaultValue: ’false‘, description: '跳过编译,只打zip包。')
+      string(name: 'PACKAGE_ONLY', defaultValue: 'false', description: '跳过编译,只打zip包。')
    }
    
    environment {
