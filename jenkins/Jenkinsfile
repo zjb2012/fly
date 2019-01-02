@@ -13,6 +13,11 @@ pipeline {
    environment {
       mvnPhase = "clean deploy"
    }
+   
+   tools {
+      maven 'maven3.6.0'
+      jdk 'jdk1.8'
+   }
 
    stages {
 
