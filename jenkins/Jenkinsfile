@@ -1,4 +1,4 @@
-@Library("vars") _
+@Library("jenkins") _
 
 pipeline {
    agent any
