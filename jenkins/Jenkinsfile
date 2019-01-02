@@ -1,4 +1,4 @@
-@Library("jenkins") _
+@Library("lib2019@ver1") _
 
 pipeline {
    agent any
