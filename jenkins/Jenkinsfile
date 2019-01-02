@@ -6,6 +6,10 @@ pipeline {
       string(name: 'PACKAGE_ONLY', defaultValue: 'false', description: '跳过编译,只打zip包。')
    }
    
+   options {
+      buildDiscarder(logRotator(numToKeepStr:"10"))
+   }
+   
    environment {
       mvnPhase = "clean deploy"
    }
