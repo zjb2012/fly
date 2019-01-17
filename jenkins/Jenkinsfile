@@ -35,7 +35,7 @@ pipeline {
          expression { return PACKAGE_ONLY.equals("false") }
       }
       steps {
-         withEnv(["modName=frw", "level=0"]) {
+         withEnv(["modName=dtbs-frw", "level=0"]) {
             script {
                changeSetSize = currentBuild.changeSets.size()
             }
