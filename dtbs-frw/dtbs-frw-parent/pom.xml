@@ -3,7 +3,7 @@
   <groupId>cn.dtbs.frw</groupId>
   <artifactId>frw-parent</artifactId>
   <version>1.0.0</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
   <name>frw-parent</name>
   
   <properties>
