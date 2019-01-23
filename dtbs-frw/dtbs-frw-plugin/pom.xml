@@ -9,6 +9,7 @@
     	<groupId>cn.dtbs.frw</groupId>
     	<artifactId>frw-parent</artifactId>
     	<version>1.0.0</version>
+		<relativePath></relativePath>
     </parent>
 	<dependencies>
 
