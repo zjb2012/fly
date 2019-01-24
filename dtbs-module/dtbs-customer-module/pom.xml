@@ -6,7 +6,7 @@
     <name>dtbs-customer-module</name>
     <parent>
     	<groupId>cn.dtbs.frw</groupId>
-    	<artifactId>dtbs-parent</artifactId>
+    	<artifactId>frw-parent</artifactId>
  		<relativePath></relativePath>  
 	   	<version>1.0.0</version>
     </parent>
