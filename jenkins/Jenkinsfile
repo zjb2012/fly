@@ -30,12 +30,78 @@ pipeline {
  }
 }
 
-   stage('buildModule') {
+stage('build dtbs-frw') {
       when {
          expression { return PACKAGE_ONLY.equals("false") }
       }
       steps {
          withEnv(["modName=dtbs-frw", "level=0"]) {
+            script {
+               changeSetSize = currentBuild.changeSets.size()
+            }
+            echo 'begin build dtbs-frw...'
+            echo  "上次编译的结果: ${currentBuild.previousBuild.result} "
+            echo "当前编译结果集: ${currentBuild.changeSets}"
+
+            buildModule("${modName}", mvnPhase)
+
+         }
+
+ }
+
+
+}
+
+stage('build dtbs-po') {
+      when {
+         expression { return PACKAGE_ONLY.equals("false") }
+      }
+      steps {
+         withEnv(["modName=dtbs-po", "level=0"]) {
+            script {
+               changeSetSize = currentBuild.changeSets.size()
+            }
+            echo 'begin build dtbs-frw...'
+            echo  "上次编译的结果: ${currentBuild.previousBuild.result} "
+            echo "当前编译结果集: ${currentBuild.changeSets}"
+
+            buildModule("${modName}", mvnPhase)
+
+         }
+
+ }
+
+
+}
+
+stage('build dtbs-interface') {
+      when {
+         expression { return PACKAGE_ONLY.equals("false") }
+      }
+      steps {
+         withEnv(["modName=dtbs-interface", "level=0"]) {
+            script {
+               changeSetSize = currentBuild.changeSets.size()
+            }
+            echo 'begin build dtbs-frw...'
+            echo  "上次编译的结果: ${currentBuild.previousBuild.result} "
+            echo "当前编译结果集: ${currentBuild.changeSets}"
+
+            buildModule("${modName}", mvnPhase)
+
+         }
+
+ }
+
+
+}
+
+   stage('build dtbs-module') {
+      when {
+         expression { return PACKAGE_ONLY.equals("false") }
+      }
+      steps {
+         withEnv(["modName=dtbs-module", "level=0"]) {
             script {
                changeSetSize = currentBuild.changeSets.size()
             }
@@ -45,6 +111,28 @@ pipeline {
             
             buildModule("${modName}", mvnPhase)
             
+         }
+
+ }
+
+
+}
+
+stage('build dtbs-web') {
+      when {
+         expression { return PACKAGE_ONLY.equals("false") }
+      }
+      steps {
+         withEnv(["modName=dtbs-web", "level=0"]) {
+            script {
+               changeSetSize = currentBuild.changeSets.size()
+            }
+            echo 'begin buildModule...'
+            echo  "上次编译的结果: ${currentBuild.previousBuild.result} "
+            echo "当前编译结果集: ${currentBuild.changeSets}"
+
+            buildModule("${modName}", mvnPhase)
+
          }
 
  }
